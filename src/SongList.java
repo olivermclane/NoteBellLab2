@@ -4,8 +4,8 @@ import java.util.List;
 public class SongList {
         private final List<BellNote> currentSong;
 
-        ReaderBlockList(){
-                oranges = new ArrayList<Orange>();
+        SongList(){
+                currentSong = new ArrayList<BellNote>();
         }
 
         public void add(BellNote b) {
@@ -15,7 +15,7 @@ public class SongList {
                 }
         }
 
-        public Orange get() {
+        public BellNote get() {
                 synchronized (currentSong) {
                         while (currentSong.size() == 0) {
                                 try {
