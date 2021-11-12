@@ -8,7 +8,7 @@ public class Member extends Thread{
         memberThread.start();
         memberNote = b;
         Thread.currentThread().setName(b);
-        System.out.println(b);
+      //  System.out.println(b);
     }
 
     //returns note symbol assigned to member
@@ -18,7 +18,7 @@ public class Member extends Thread{
 
     //returns the bell note the member plays
     public BellNote play(String len){
-        System.out.println(Thread.currentThread().getName());
+       //System.out.println(Thread.currentThread().getName());
         BellNote.Note NoteConversion;
         BellNote.NoteLength NoteLenConversion;
         NoteConversion = Enum.valueOf(BellNote.Note.class, memberNote);
@@ -29,7 +29,7 @@ public class Member extends Thread{
     //closes the thread for the member
     public void notesDone(){
         try {
-            System.out.println("Stopping thread "+ Thread.currentThread().getName());
+            System.out.println("Stopping thread -- Note "+ memberNote);
             memberThread.join();
         } catch (InterruptedException e) {
             e.printStackTrace();

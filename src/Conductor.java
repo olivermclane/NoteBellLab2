@@ -32,7 +32,7 @@ public class Conductor {
 
     //returns total notes in song (only need one cause they both should be the same length) 
     public int getLength() {
-        return noteOrder.size();
+        return noteLenOrder.size();
 
     }
     

@@ -1,20 +1,20 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 //keeps track of the current members
 public class MemberList {
-        private final List<Member> members;
+        private final Map<String,Member> members;
         private int length = 0;
 
         MemberList(){
-                members = new ArrayList<Member>();
+                members = new HashMap<String, Member>(14);
         }
 
         //adds a member to the list
         public void add(Member b) {
                 synchronized (members){
-                        System.out.println(b.memberNote);
-                        members.add(b);
+                        //System.out.println(b.memberNote);
+                        members.put(b.memberNote, b);
                         members.notify();
                         length++;
                 }
@@ -28,13 +28,11 @@ public class MemberList {
                                         members.wait();
                                 } catch (InterruptedException ignored) {}
                         }
-                        for(Member d: members){
-                                if(d.memberNote.equals(s)){
-                                        return d;
-                                }else{
-                                        System.err.println("Null/Bug found");
-                                        System.exit(-1);
-                                }
+                        if(members.containsKey(s)){
+                               return members.get(s);
+                        }else{
+                                System.err.println("System bug found -- Possible Null");
+                                System.exit(-1);
                         }
                 }
                 //Will never reach but shall be handled.
@@ -54,7 +52,7 @@ public class MemberList {
         //returns if a note has already been assigned
         public synchronized boolean listContain(String l){
                 for(int i = 0; i< length; i++ ){
-                        if(members.get(i).getMName().equals(l)){
+                        if(members.containsKey(l)){
                                 return true;
                         }
                 }
@@ -63,8 +61,8 @@ public class MemberList {
 
         //ends all my threads
         public void endThreads(){
-                for(Member d: members){
-                        d.notesDone();
+                for(Map.Entry<String, Member> entry: members.entrySet()){
+                        entry.getValue().notesDone();
                 }
         }
 }

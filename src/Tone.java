@@ -24,8 +24,7 @@ public class Tone {
             String[] split = Line.split(" ", 2);
             String noteSymbol = split[0];
             String noteLen = split[1];
-            johnWilliam.addNoteSym(noteSymbol);
-
+            
             //checks valid note symbol
             if(!doesExist(noteSymbol)){
                 System.err.println("Invalid File");
@@ -46,6 +45,7 @@ public class Tone {
                 System.exit(-1);
             }
 
+            johnWilliam.addNoteSym(noteSymbol);
             johnWilliam.addNoteLen(noteLen);
 
             //adds a new member with a note
@@ -81,11 +81,14 @@ public class Tone {
         try (final SourceDataLine line = AudioSystem.getSourceDataLine(af)) {
             line.open();
             line.start();
-            for(int i = 0; i < johnWilliam.getLength(); i++) {
-               String s1 = johnWilliam.getNoteSym();
-               String s2 = johnWilliam.getNoteLen();
-               Member placer = memberL.get(s1);
-               playNote(line, placer.play(s2));
+            //using the remove function so it continues to shirk list
+            int counter = johnWilliam.getLength();
+            for(int i = 0; i < counter; i+=1) {
+                //System.out.println(i);
+                String s1 = johnWilliam.getNoteSym();
+                String s2 = johnWilliam.getNoteLen();
+                Member placer = memberL.get(s1);
+                playNote(line, placer.play(s2));
             }
             line.drain();
         }
