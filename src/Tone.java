@@ -21,7 +21,7 @@ public class Tone {
 
     public static void main(String[] args) throws Exception {
         String Line;
-        File songTxt = new File("MaryLamb.txt");
+        File songTxt = new File(args[0]);
         BufferedReader br = new BufferedReader(new FileReader(songTxt));
         
         while ((Line = br.readLine()) != null){
@@ -32,7 +32,7 @@ public class Tone {
             
             // checks valid note symbol
             if(!doesExist(noteSymbol)){
-                System.err.println("Invalid File");
+                System.err.println("Invalid File -- Invalid Foramt or Note");
                 System.exit(-1);
             }
 
@@ -46,7 +46,7 @@ public class Tone {
             }else if(noteLen.equals("1")){
                 noteLen = "WHOLE";
             }else{
-                System.err.println("Invalid File");
+                System.err.println("Invalid File -- Invalid Length");
                 System.exit(-1);
             }
 
