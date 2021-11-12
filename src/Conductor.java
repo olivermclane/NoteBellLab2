@@ -6,7 +6,7 @@ public class Conductor {
     private List<String> noteOrder = new ArrayList<>();
     private List<String> noteLenOrder = new ArrayList<>(); 
 
-    public Conductor() {
+    Conductor() {
 
     }
     

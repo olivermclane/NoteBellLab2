@@ -1,0 +1,79 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>180</x><y>0</y><w>210</w><h>60</h></coordinates><panel_attributes>BellNote
+--
+# note : Note
+# length : NoteLength
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>330</y><w>260</w><h>130</h></coordinates><panel_attributes>Tone
+--
+- memberL : MemberList
+- johnWilliam : Conductor
+- af : AudioFormat
+--
+playSong() : void
++ playNote(SourceDataLine, BellNote) : void
++ doesExit(String)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>330</x><y>540</y><w>210</w><h>140</h></coordinates><panel_attributes>Conductor
+--
+- noteOrder : ArrayList
+- noteLenOrder : ArrayList
+--
++ addNoteSym(String) : void
++ addNoteLen(String) : void
++ getNoteSym() : String
++ getNoteLen() : String
++ getLength() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>710</x><y>430</y><w>210</w><h>190</h></coordinates><panel_attributes>Member
+--
++ memberNote : String
++ memberThread : Thread
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>520</y><w>210</w><h>140</h></coordinates><panel_attributes>MemberList
+--
+- members : HashMap
+- length : int
+--
++ add(Member) : void
++ get(String) : Member
++ isEmpty() : boolean
++ listContain(String) : boolean
++ endThreads() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>120</y><w>210</w><h>370</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+Note
+--
+REST
+A4
+A4S
+B4
+C4
+C4S
+D4
+D4S
+E4
+F4
+F4S
+G4
+G4S
+A5
+--
++ SAMPLE_RATE : int
++ MEASURE_LENGTH_SEC : int
+- step_alpha : double
+- FREQUENCY_A_HZ : double
+- MAX_VOLUME : double
+- sinSample : byte[]
+--
++ sample() : byte[]
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>20</x><y>120</y><w>210</w><h>150</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+NoteLength
+--
+WHOLE
+HALF
+QUARTER
+EIGTH
+--
+- timeMs : int
+--
++ timeMs() : int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>107</x><y>51</y><w>160</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;70;140;10</additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>50</y><w>160</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>140;70;10;10</additional_attributes></element></diagram>

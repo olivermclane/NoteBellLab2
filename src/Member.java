@@ -4,11 +4,10 @@ public class Member extends Thread{
     public Thread memberThread = new Thread();
     
     //Constructor for member
-    public Member(String b){
+    Member(String b){
         memberThread.start();
         memberNote = b;
         Thread.currentThread().setName(b);
-      //  System.out.println(b);
     }
 
     //returns note symbol assigned to member
@@ -18,7 +17,6 @@ public class Member extends Thread{
 
     //returns the bell note the member plays
     public BellNote play(String len){
-       //System.out.println(Thread.currentThread().getName());
         BellNote.Note NoteConversion;
         BellNote.NoteLength NoteLenConversion;
         NoteConversion = Enum.valueOf(BellNote.Note.class, memberNote);

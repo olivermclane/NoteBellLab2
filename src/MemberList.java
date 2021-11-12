@@ -39,11 +39,6 @@ public class MemberList {
                 return new Member("Error");
         }
 
-        //returns the length of the list
-        public synchronized int ListLength(){
-                return length;
-        }
-
         //returns true of the list is empty
         public synchronized boolean isEmpty(){
                 return members.size() == 0;

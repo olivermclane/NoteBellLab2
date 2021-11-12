@@ -106,14 +106,14 @@ public class Tone {
 
     //check for note symbol existing
     public static boolean doesExist(String s) {
-    if(s.equals(" ")){
-        return false;
-    }
-    for(BellNote.Note n: BellNote.Note.values()){
-        if(s.equals(n.name())){
-            return true;
+        if(s.equals(" ")){
+            return false;
         }
-    }
-    return false;
+        for(BellNote.Note n: BellNote.Note.values()){
+            if(s.equals(n.name())){
+                return true;
+            }
+        }
+        return false;
     }
 }

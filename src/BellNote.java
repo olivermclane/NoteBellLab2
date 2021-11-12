@@ -1,7 +1,7 @@
 //class for the Bellnote that the member plays
 public class BellNote {
-    final Note note;
-    final NoteLength length;
+    protected final Note note;
+    protected final NoteLength length;
 
     BellNote(Note note, NoteLength length) {
         this.note = note;
