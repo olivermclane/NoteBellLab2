@@ -7,7 +7,12 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 
-// program that play properly formatted sheet music
+/*
+* @Author : Oliver Mclane
+* This Tone Project will take a text in via args and read the sheet music.
+* It will convert the string to enumerator values. The members are assigned a note
+* and the thread starts, they are called by the conductor storing the note order and length. 
+*/
 public class Tone {
 
     // memberList and my conductor created
