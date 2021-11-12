@@ -21,7 +21,7 @@ public class Tone {
 
     public static void main(String[] args) throws Exception {
         String Line;
-        File songTxt = new File("MaryHadALittleLamb.txt");
+        File songTxt = new File("MaryLamb.txt");
         BufferedReader br = new BufferedReader(new FileReader(songTxt));
         
         while ((Line = br.readLine()) != null){
@@ -105,7 +105,7 @@ public class Tone {
         final int ms = Math.min(bn.length.timeMs(), BellNote.Note.MEASURE_LENGTH_SEC * 1000);
         final int length = BellNote.Note.SAMPLE_RATE * ms / 1000;
         line.write(bn.note.sample(), 0, length);
-        line.write(BellNote.Note.REST.sample(), 0, 50);
+        line.write(BellNote.Note.REST.sample(), 0, 1000);
     }
 
     // check for note symbol existing
