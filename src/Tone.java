@@ -16,7 +16,7 @@ public class Tone {
 
     public static void main(String[] args) throws Exception {
         String Line;
-        File songTxt = new File("MaryHadALittleLamb.txt");
+        File songTxt = new File(args[0]);
         BufferedReader br = new BufferedReader(new FileReader(songTxt));
         
         while ((Line = br.readLine()) != null){
@@ -45,6 +45,7 @@ public class Tone {
                 System.exit(-1);
             }
 
+            //adding them to the conductor
             johnWilliam.addNoteSym(noteSymbol);
             johnWilliam.addNoteLen(noteLen);
 
