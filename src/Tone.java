@@ -7,31 +7,31 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 
-//program that play properly formatted sheet music
+// program that play properly formatted sheet music
 public class Tone {
 
-    //memberList and my conductor created
+    // memberList and my conductor created
     private static MemberList memberL = new MemberList();
     private static Conductor johnWilliam = new Conductor();
 
     public static void main(String[] args) throws Exception {
         String Line;
-        File songTxt = new File(args[0]);
+        File songTxt = new File("MaryHadALittleLamb.txt");
         BufferedReader br = new BufferedReader(new FileReader(songTxt));
         
         while ((Line = br.readLine()) != null){
-            //split textfile into strings and notes
+            // split textfile into strings and notes
             String[] split = Line.split(" ", 2);
             String noteSymbol = split[0];
             String noteLen = split[1];
             
-            //checks valid note symbol
+            // checks valid note symbol
             if(!doesExist(noteSymbol)){
                 System.err.println("Invalid File");
                 System.exit(-1);
             }
 
-            //checks valid note length
+            // checks valid note length
             if(noteLen.equals("4")){
                 noteLen= "QUARTER";
             }else if(noteLen.equals("8")){
@@ -45,29 +45,29 @@ public class Tone {
                 System.exit(-1);
             }
 
-            //adding them to the conductor
+            // adding them to the conductor
             johnWilliam.addNoteSym(noteSymbol);
             johnWilliam.addNoteLen(noteLen);
 
-            //adds a new member with a note
+            // adds a new member with a note
             if(!memberL.listContain(noteSymbol)){
                 memberL.add(new Member(noteSymbol));
             }
 
         }
 
-        //closes file
+        // closes file
         br.close();
         
-        //creates audio file
+        // creates audio file
         final AudioFormat af =
             new AudioFormat(BellNote.Note.SAMPLE_RATE, 8, 1, true, false);
         Tone t = new Tone(af);
 
-        //play song
+        // play song
         t.playSong();
 
-        //closes out my threads
+        // closes out my threads
         memberL.endThreads();
     }
 
@@ -77,15 +77,14 @@ public class Tone {
         this.af = af;
     }
 
-    //plays the song
+    // plays the song
     void playSong() throws LineUnavailableException {
         try (final SourceDataLine line = AudioSystem.getSourceDataLine(af)) {
             line.open();
             line.start();
-            //using the remove function so it continues to shirk list
+            // using the remove function so it continues to shirk list
             int counter = johnWilliam.getLength();
             for(int i = 0; i < counter; i+=1) {
-                //System.out.println(i);
                 String s1 = johnWilliam.getNoteSym();
                 String s2 = johnWilliam.getNoteLen();
                 Member placer = memberL.get(s1);
@@ -104,7 +103,7 @@ public class Tone {
         line.write(BellNote.Note.REST.sample(), 0, 50);
     }
 
-    //check for note symbol existing
+    // check for note symbol existing
     public static boolean doesExist(String s) {
         if(s.equals(" ")){
             return false;

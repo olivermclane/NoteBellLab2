@@ -1,21 +1,21 @@
-//hold the note and starts a thread for the note
+// hold the note and starts a thread for the note
 public class Member extends Thread{
     public String memberNote;
     public Thread memberThread = new Thread();
     
-    //Constructor for member
+    // Constructor for member
     Member(String b){
         memberThread.start();
         memberNote = b;
         Thread.currentThread().setName(b);
     }
 
-    //returns note symbol assigned to member
+    // returns note symbol assigned to member
     public String getMName(){
         return memberNote;
     }
 
-    //returns the bell note the member plays
+    // returns the bell note the member plays
     public BellNote play(String len){
         BellNote.Note NoteConversion;
         BellNote.NoteLength NoteLenConversion;
@@ -24,7 +24,7 @@ public class Member extends Thread{
         return new BellNote(NoteConversion, NoteLenConversion);
     }
 
-    //closes the thread for the member
+    // closes the thread for the member
     public void notesDone(){
         try {
             System.out.println("Stopping thread -- Note "+ memberNote);

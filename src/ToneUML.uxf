@@ -1,8 +1,8 @@
-<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>180</x><y>0</y><w>210</w><h>60</h></coordinates><panel_attributes>BellNote
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>620</x><y>515</y><w>210</w><h>60</h></coordinates><panel_attributes>BellNote
 --
 # note : Note
 # length : NoteLength
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>330</y><w>260</w><h>130</h></coordinates><panel_attributes>Tone
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>645</y><w>260</w><h>130</h></coordinates><panel_attributes>Tone
 --
 - memberL : MemberList
 - johnWilliam : Conductor
@@ -11,7 +11,7 @@
 playSong() : void
 + playNote(SourceDataLine, BellNote) : void
 + doesExit(String)
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>330</x><y>540</y><w>210</w><h>140</h></coordinates><panel_attributes>Conductor
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>930</x><y>495</y><w>210</w><h>140</h></coordinates><panel_attributes>Conductor
 --
 - noteOrder : ArrayList
 - noteLenOrder : ArrayList
@@ -20,17 +20,14 @@ playSong() : void
 + addNoteLen(String) : void
 + getNoteSym() : String
 + getNoteLen() : String
-+ getLength() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>710</x><y>430</y><w>210</w><h>190</h></coordinates><panel_attributes>Member
++ getLength() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>630</x><y>865</y><w>210</w><h>110</h></coordinates><panel_attributes>Member
 --
 + memberNote : String
 + memberThread : Thread
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---
-Responsibilities
--- Resp1
-*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>520</y><w>210</w><h>140</h></coordinates><panel_attributes>MemberList
++ getMName() : String
++ play(String) : BellNote
++ notesDone() : void </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>300</x><y>495</y><w>210</w><h>140</h></coordinates><panel_attributes>MemberList
 --
 - members : HashMap
 - length : int
@@ -39,7 +36,7 @@ Responsibilities
 + get(String) : Member
 + isEmpty() : boolean
 + listContain(String) : boolean
-+ endThreads() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>120</y><w>210</w><h>370</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
++ endThreads() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>730</x><y>85</y><w>210</w><h>370</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
 Note
 --
 REST
@@ -65,7 +62,7 @@ A5
 - sinSample : byte[]
 --
 + sample() : byte[]
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>20</x><y>120</y><w>210</w><h>150</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>480</x><y>305</y><w>210</w><h>150</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
 NoteLength
 --
 WHOLE
@@ -76,4 +73,4 @@ EIGTH
 - timeMs : int
 --
 + timeMs() : int
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>107</x><y>51</y><w>160</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;70;140;10</additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>50</y><w>160</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>140;70;10;10</additional_attributes></element></diagram>
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>567</x><y>446</y><w>140</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;120;70</additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>445</y><w>130</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>110;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>763</y><w>30</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>716</x><y>570</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>820</x><y>530</y><w>130</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>500</x><y>530</y><w>140</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>120;10;10;10</additional_attributes></element></diagram>

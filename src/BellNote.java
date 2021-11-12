@@ -1,4 +1,4 @@
-//class for the Bellnote that the member plays
+// class for the Bellnote that the member plays
 public class BellNote {
     protected final Note note;
     protected final NoteLength length;
@@ -9,7 +9,7 @@ public class BellNote {
     }
 
 
-//note length states
+// note length states
 enum NoteLength {
     WHOLE(1.0f),
     HALF(0.5f),
@@ -27,7 +27,7 @@ enum NoteLength {
     }
 }
 
-//states for note symbol 
+// states for note symbol 
 enum Note {
     // REST Must be the first 'Note'
     REST,
@@ -56,7 +56,7 @@ enum Note {
 
     private final byte[] sinSample = new byte[MEASURE_LENGTH_SEC * SAMPLE_RATE];
 
-    //this is where the note is calculated
+    // this is where the note is calculated
     private Note() {
         int n = this.ordinal();
         if (n > 0) {

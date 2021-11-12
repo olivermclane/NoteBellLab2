@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-//keeps track of the current members
+// keeps track of the current members
 public class MemberList {
         private final Map<String,Member> members;
         private int length = 0;
@@ -10,17 +10,16 @@ public class MemberList {
                 members = new HashMap<String, Member>(14);
         }
 
-        //adds a member to the list
+        // adds a member to the list
         public void add(Member b) {
                 synchronized (members){
-                        //System.out.println(b.memberNote);
                         members.put(b.memberNote, b);
                         members.notify();
                         length++;
                 }
         }
 
-        //searchs for the member of the note
+        // searches for the member of the note
         public Member get(String s) {
                 synchronized (members) {
                         while (members.size() == 0) {
@@ -35,16 +34,16 @@ public class MemberList {
                                 System.exit(-1);
                         }
                 }
-                //Will never reach but shall be handled.
+                // Will never reach but shall be handled.
                 return new Member("Error");
         }
 
-        //returns true of the list is empty
+        // returns true of the list is empty
         public synchronized boolean isEmpty(){
                 return members.size() == 0;
         }
 
-        //returns if a note has already been assigned
+        // returns if a note has already been assigned
         public synchronized boolean listContain(String l){
                 for(int i = 0; i< length; i++ ){
                         if(members.containsKey(l)){
@@ -54,7 +53,7 @@ public class MemberList {
                 return false;
         }
 
-        //ends all my threads
+        // ends all my threads
         public void endThreads(){
                 for(Map.Entry<String, Member> entry: members.entrySet()){
                         entry.getValue().notesDone();
